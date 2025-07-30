@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+main.main__court{
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(6, 80px);
+    gap: 2px;
+}
+
+main.main__court .court__square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid #202020 2px;
+    font-size: 14px;
+}
+
+.square__pink{
+    background-color: rgb(255, 77, 228);
+}
+
+.square__green{
+    background-color: rgb(119, 255, 119);
+}
+
+.square__purple{
+    background-color: rgb(214, 80, 255);
+}

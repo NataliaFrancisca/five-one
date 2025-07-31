@@ -1,6 +1,7 @@
 import { rotations } from './rotation.js';
 
 var court = document.querySelector(".main__court");
+var h1 = document.querySelector("#current-position");
 
 let row = 6;
 let col = 5;
@@ -49,10 +50,18 @@ for(let i = 1; i < row + 1; i++){
 }
 
 export function next(){
-    current = current + 1;
+
+    if (current == 5){
+        current = 0;
+    }else{
+        current = current + 1;
+    }
+
     updatePlayers();
     cleanCourt();
     console.log(current);
+
+    h1.innerHTML = rotationsBase[current];
 }
 
 export function serving(){

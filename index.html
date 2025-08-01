@@ -18,10 +18,15 @@
     </main>
 
     <section class="group__button">
-        <button onclick="serving()">serving</button>
-        <button onclick="receiving()">receiving</button>
-        <button onclick="next()">next</button>
-        <button onclick="back()">back</button>
+        <div class="group__action">
+            <button onclick="serving()" class="action__game">serving</button>
+            <button onclick="receiving()" class="action__game">receiving</button>
+        </div>
+
+        <div class="group__action">
+            <button onclick="next()" class="action__rotation">next</button>
+            <button onclick="back()" class="action__rotation">back</button>
+        </div>
     </section>
     
 

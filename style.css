@@ -43,8 +43,9 @@ main.main__court .court__square{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: solid #202020 2px;
-    font-size: 14px;
+    text-wrap: wrap;
+    font-size: 12px;
+    border: solid black 1px;
     font-family: "Roboto Slab", serif;
 }
 
@@ -62,8 +63,21 @@ section.group__button button{
     font-size: 14px;
     font-weight: 500;
     border: none;
-    background-color: rgb(35, 189, 255);
     box-shadow: 2px 2px #c7c7c7;
+    cursor: pointer;
+}
+
+section.group__button div.group__action{
+    display: flex;
+    gap: 20px;
+}
+
+button.action__game{
+    background-color:  rgb(35, 255, 130);
+}
+
+button.action__rotation{
+    background-color:  rgb(156, 255, 35);
 }
 
 .square__pink{

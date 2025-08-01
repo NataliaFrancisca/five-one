@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-size: 100%;
+    font-family: "Roboto", sans-serif;
 }
 
 body{
@@ -13,11 +16,26 @@ body{
     justify-content: center;
 }
 
+p.current__position-setter{
+    font-size: 18px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+}
+
+span.current__position{
+    font-size: 14px;
+    font-weight: 800;
+    background-color: rgb(35, 189, 255);
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
 main.main__court{
     display: grid;
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(6, 80px);
+    grid-template-columns: repeat(7, minmax(auto, 60px));
+    grid-template-rows: repeat(6, 60px);
     gap: 2px;
+    margin: 28px 10px;
 }
 
 main.main__court .court__square{
@@ -27,6 +45,25 @@ main.main__court .court__square{
     text-align: center;
     border: solid #202020 2px;
     font-size: 14px;
+    font-family: "Roboto Slab", serif;
+}
+
+section.group__button{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 300px;
+}
+
+section.group__button button{
+    padding: 12px 18px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(35, 189, 255);
+    box-shadow: 2px 2px #c7c7c7;
 }
 
 .square__pink{
@@ -39,4 +76,9 @@ main.main__court .court__square{
 
 .square__purple{
     background-color: rgb(214, 80, 255);
+}
+
+.player__serving{
+    border: solid black 4px;
+    background-color: green;   
 }

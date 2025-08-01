@@ -59,8 +59,20 @@ export function next(){
 
     updatePlayers();
     cleanCourt();
-    console.log(current);
+    currentPositionElement.innerHTML = rotationsBase[current];
+}
 
+
+export function back(){
+
+    if (current == 1){
+        current = 5;
+    }else{
+        current = current - 1;
+    }
+
+    updatePlayers();
+    cleanCourt();
     currentPositionElement.innerHTML = rotationsBase[current];
 }
 
@@ -185,3 +197,4 @@ window.next = next;
 
 window.serving = serving;
 window.receiving = receiving;
+window.back = back;

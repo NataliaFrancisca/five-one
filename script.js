@@ -1,10 +1,10 @@
 import { rotations } from './rotation.js';
 
 var court = document.querySelector(".main__court");
-var h1 = document.querySelector("#current-position");
+var currentPositionElement = document.querySelector(".current__position");
 
 let row = 6;
-let col = 5;
+let col = 7;
 
 let players = {
     1: "setter",
@@ -61,7 +61,7 @@ export function next(){
     cleanCourt();
     console.log(current);
 
-    h1.innerHTML = rotationsBase[current];
+    currentPositionElement.innerHTML = rotationsBase[current];
 }
 
 export function serving(){
@@ -83,6 +83,7 @@ export function receiving(){
 
 function cleanCourt(){
     const elements = court.querySelectorAll(".inserted");
+    const player_serving = court.querySelector(".player__serving");
     const size = elements.length;
     
     for (let i = 0; i <= size; i++){
@@ -93,6 +94,12 @@ function cleanCourt(){
             element.innerHTML = "";
         }
     }
+
+
+    if(player_serving){
+        player_serving.classList.remove("player__serving");
+    }
+
 }
 
 function executeRotation(rotation, isServing){
@@ -126,7 +133,7 @@ function executeRotation(rotation, isServing){
     elementFive.classList.add("inserted");
     elementSix.classList.add("inserted");
     elementOne.classList.add("inserted");
-
+    elementOne.classList.add("player__serving")
 
     if (!isServing){
         const playerOne = players[1];

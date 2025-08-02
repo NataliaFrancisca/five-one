@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+p.current__position-setter{
+    font-size: 18px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+}
+
+p.current__action{
+    font-size: 18px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+    background-color: rgb(61, 116, 255);
+    color: white;
+    padding: 8px;
+    margin: 4px 0;
+}
+
+span.current__position{
+    font-size: 14px;
+    font-weight: 800;
+    background-color: rgb(61, 116, 255);
+    color: white;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+main.main__court{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 80px);
+    margin: 28px 10px;
+    gap: 2px;
+    width: 80%;
+}
+
+main.main__court >
+div.line__1, div.line__2, div.line__3{
+    background-color: orange;
+}
+
+main.main__court >
+div.line__4, div.line__5, div.line__6{
+    background-color: rgb(61, 106, 255);
+}
+
+.court__square.inserted{
+    border-radius: 4px;
+    display: flex;
+    box-shadow: 2px 2px #cbcbcb;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.court__square.inserted p{
+    font-size: 12px;
+    font-weight: 700;
+    text-wrap: wrap;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.court__square.inserted span{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.court__square.inserted.player__serving{
+    background-color: rgb(34, 255, 34);   
+    font-weight: 600;
+}
+
+section.group__button{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 300px;
+}
+
+section.group__button button{
+    padding: 12px 18px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+}
+
+section.group__button div.group__action{
+    display: flex;
+    gap: 20px;
+}
+
+button.action__game{
+    background-color: rgb(61, 116, 255);
+    color: white;
+}
+
+button.action__rotation{
+    background-color: rgb(34, 255, 34);
+}
+
+/* FORM */
+
+button#form__update-players{
+    border: none;
+    padding: 10px 8px;
+    background-color: rgb(34, 255, 34);
+    box-shadow: 2px 2px rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 18px 0;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
+}
+
+dialog#favDialog{
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+dialog#favDialog form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+dialog#favDialog form .players__names{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+fieldset.fieldset__player{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: none;
+}
+
+fieldset.fieldset__player label{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+fieldset.fieldset__player input{
+    outline: none;
+    border-radius: 4px;
+    padding: 8px 10px;
+}
+
+menu.menu__form{
+    display: flex;
+    justify-content: space-around;
+}
+
+menu.menu__form button{
+    padding: 12px 10px;
+    border: none;
+    padding: 10px 12px;
+    box-shadow: 2px 2px rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+menu.menu__form button[type="reset"]{
+    background-color: red;
+    color: white;
+}
+
+menu.menu__form button[type="submit"]{
+    background-color: rgb(34, 255, 34);
+}

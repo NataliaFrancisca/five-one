@@ -1,33 +1,9 @@
-import { rotations } from './rotation.js';
+import { rotations } from './assets/db/rotation.js';
+import { setPlayersIntoBackRow, setPlayersIntoFrontRow } from './assets/script/insert-player.js';
 
 var court = document.querySelector(".main__court");
-var currentPositionElement = document.querySelector(".current__position");
-
-let row = 6;
-let col = 7;
-
-let players = {
-    1: "setter",
-    6: "middle 2",
-    5: "outside 2",
-    4: "opposite",
-    3: "middle 1",
-    2: "outside 1"
-}
-
-// 4 3 2
-// 5 6 1
-
-function updatePlayers(){
-    var prev = Object.assign({}, players)
-
-    players[1] = prev[2]
-    players[6] = prev[1]
-    players[5] = prev[6]
-    players[4] = prev[5]
-    players[3] = prev[4]
-    players[2] = prev[3]
-}
+var currentSetterPosition = document.querySelector(".current__position");
+var currentAction = document.querySelector(".current__action");
 
 const rotationsBase = {
     0: 1,
@@ -38,163 +14,89 @@ const rotationsBase = {
     5: 2
 }
 
+const storagePlayers = localStorage.getItem("PLAYERS__NAME");
+const players = JSON.parse(storagePlayers);
+
 let current = 0;
 
-for(let i = 1; i < row + 1; i++){
-    for(let j = 1; j < col + 1; j++){
-        const div = document.createElement("div");
-        div.id = i + ":" + j;
-        div.classList.add("court__square");
-        court.appendChild(div);
+function updatePlayersNextRotation(){
+    var prev = Object.assign({}, players)
+
+    players[1] = prev[2]
+    players[6] = prev[1]
+    players[5] = prev[6]
+    players[4] = prev[5]
+    players[3] = prev[4]
+    players[2] = prev[3]
+}
+
+function updatePlayersBackRotation(){
+    var prev = Object.assign({}, players)
+
+    players[1] = prev[6]
+    players[6] = prev[5]
+    players[5] = prev[4]
+    players[4] = prev[3]
+    players[3] = prev[2]
+    players[2] = prev[1]
+}
+
+function clean(){
+    const players = court.querySelectorAll(".inserted");
+    const size = players.length;
+    
+    for (let i = 0; i <= size; i++){
+        const element = players.item(i);
+
+        if(element){
+            element.classList.remove("inserted");
+            element.firstChild.innerHTML = "";
+            element.lastChild.innerHTML = "";
+        }
+    }
+
+    const playerServing = court.querySelector(".player__serving");
+
+    if(playerServing){
+        playerServing.classList.remove("player__serving");
     }
 }
 
 export function next(){
-
-    if (current == 5){
-        current = 0;
-    }else{
-        current = current + 1;
-    }
-
-    updatePlayers();
-    cleanCourt();
-    currentPositionElement.innerHTML = rotationsBase[current];
+    current == 5 ? current = 0 : current = current+1;
+    updatePlayersNextRotation();
+    clean();
+    currentSetterPosition.innerHTML = rotationsBase[current];
 }
 
-
 export function back(){
-
-    if (current == 1){
-        current = 5;
-    }else{
-        current = current - 1;
-    }
-
-    updatePlayers();
-    cleanCourt();
-    currentPositionElement.innerHTML = rotationsBase[current];
+    current == 0 ? current = 5 : current = current-1;
+    updatePlayersBackRotation();
+    clean();
+    currentSetterPosition.innerHTML = rotationsBase[current];
 }
 
 export function serving(){
-    console.log(current);
-    const rotationNumber = rotationsBase[current];
+    clean();
+
     const rotation = rotations[current].serving;
-    console.log("rotation serving: ", rotationNumber, rotation);
-    cleanCourt();
-    executeRotation(rotation, true);
+    currentAction.innerHTML = "serving";
+
+    setPlayersIntoFrontRow(players, rotation.front);
+    setPlayersIntoBackRow(players, rotation.back, true);
 }
 
 export function receiving(){
-   const rotationNumber = rotationsBase[current];
+    clean();
+
     const rotation = rotations[current].receiving;
-    console.log("rotation serving: ", rotationNumber, rotation);
-    cleanCourt();
-    executeRotation(rotation, false);
+    currentAction.innerHTML = "receiving";
+
+    setPlayersIntoFrontRow(players, rotation.front);
+    setPlayersIntoBackRow(players, rotation.back, false);
 }
-
-function cleanCourt(){
-    const elements = court.querySelectorAll(".inserted");
-    const player_serving = court.querySelector(".player__serving");
-    const size = elements.length;
-    
-    for (let i = 0; i <= size; i++){
-        const element = elements.item(i);
-
-        if(element){
-            element.classList.remove("inserted");
-            element.innerHTML = "";
-        }
-    }
-
-
-    if(player_serving){
-        player_serving.classList.remove("player__serving");
-    }
-
-}
-
-function executeRotation(rotation, isServing){
-    const front = rotation.front;
-    const back = rotation.back;
-
-    const idFour = front[4][0] + ":" + front[4][1];
-    const idThree = front[3][0] + ":" + front[3][1];
-    const idTwo = front[2][0] + ":" + front[2][1];
-
-    const elementFour = document.getElementById(idFour);
-    const elementThree = document.getElementById(idThree);
-    const elementTwo = document.getElementById(idTwo);
-
-    elementFour.classList.add("inserted");
-    elementThree.classList.add("inserted");
-    elementTwo.classList.add("inserted");
-
-    elementFour.innerHTML = players[4];
-    elementThree.innerHTML = players[3];
-    elementTwo.innerHTML = players[2];
-
-    const idFive = back[5][0] + ":" + back[5][1];
-    const idSix = back[6][0] + ":" + back[6][1];
-    const idOne = back[1][0] + ":" + back[1][1];
-
-    const elementFive = document.getElementById(idFive);
-    const elementSix = document.getElementById(idSix);
-    const elementOne = document.getElementById(idOne);
-
-    elementFive.classList.add("inserted");
-    elementSix.classList.add("inserted");
-    elementOne.classList.add("inserted");
-    elementOne.classList.add("player__serving")
-
-    if (!isServing){
-        const playerOne = players[1];
-        const playerFive = players[5];
-        const playerSix = players[6];
-
-        if (playerFive.includes("middle")){
-            elementFive.innerHTML = "libero";
-        }else{
-            elementFive.innerHTML = playerFive;
-        }
-
-        if (playerSix.includes("middle")){
-            elementSix.innerHTML = "libero";
-        }else{
-            elementSix.innerHTML = playerSix;
-        }
-
-        if (playerOne.includes("middle")){
-            elementOne.innerHTML = "libero";
-        }else{
-            elementOne.innerHTML = playerOne;
-        }
-    }
-
-
-    if(isServing){
-        const playerOne = players[1];
-        elementOne.innerHTML = playerOne;
-
-        const playerFive = players[5];
-        const playerSix = players[6];
-
-        if (playerFive.includes("middle")){
-            elementFive.innerHTML = "libero";
-        }else{
-            elementFive.innerHTML = playerFive;
-        }
-
-        if (playerSix.includes("middle")){
-            elementSix.innerHTML = "libero";
-        }else{
-            elementSix.innerHTML = playerSix;
-        }
-    }
-}
-
-window.next = next;
 
 window.serving = serving;
 window.receiving = receiving;
 window.back = back;
+window.next = next;

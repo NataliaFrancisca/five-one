@@ -3,20 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js"></script>
+    <title>five-one vb</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+    <!-- FORM PLAYERS NAME -->
+    <menu>
+        <button id="form__update-players">update <br> player's name</button>
+    </menu>
+
+    <dialog id="dialog__players-name">
+        <form method="dialog" id="form__players-name">
+            <section class="players__names">
+                <fieldset class="fieldset__player">
+                    <label for="setter__name">Setter:</label>
+                    <input type="text" id="setter__name" />
+                </fieldset>
+                
+                <fieldset class="fieldset__player">
+                    <label for="libero__name">Libero:</label>
+                    <input type="text" id="libero__name" />
+                </fieldset>
+
+                <fieldset class="fieldset__player">
+                    <label for="opp__name">Opposite:  </label>
+                    <input type="text" id="opp__name" />
+                </fieldset>
+
+                <fieldset class="fieldset__player">
+                    <label for="mdbi__name">Middle Blocker I: </label>
+                    <input type="text" id="mdbi__name" />
+                </fieldset>
+
+                <fieldset class="fieldset__player">
+                    <label for="mdbii__name">Middle Blocker II: </label>
+                    <input type="text" id="mdbii__name" />
+                </fieldset>
+
+                <fieldset class="fieldset__player">
+                    <label for="othi__name">Outside Hitter I: </label>
+                    <input type="text" id="othi__name" />
+                </fieldset>
+
+                <fieldset class="fieldset__player">
+                    <label for="othii__name">Outside Hitter II:  </label>
+                    <input type="text" id="othii__name" />
+                </fieldset>
+            </section>
+            <menu class="menu__form">
+                <button id="cancel" type="reset">Cancel</button>
+                <button type="submit">Confirm</button>
+            </menu>
+        </form>
+    </dialog>
+
+    <!-- DETAILS -->
     <p class="current__position-setter">current setter's position: 
         <span class="current__position">1</span>
     </p>
 
+    <p class="current__action">serving</p>
 
+    <!-- COURT -->
     <main class="main__court">  
     </main>
 
+    <!-- ACTION BUTTONS -->
     <section class="group__button">
         <div class="group__action">
             <button onclick="serving()" class="action__game">serving</button>
@@ -24,11 +77,13 @@
         </div>
 
         <div class="group__action">
-            <button onclick="next()" class="action__rotation">next</button>
             <button onclick="back()" class="action__rotation">back</button>
+            <button onclick="next()" class="action__rotation">next</button>
         </div>
     </section>
     
-
+<script type="module" src="script.js"></script>
+<script src="assets/script/form-players-name.js"></script>
+<script src="assets/script/insert-court.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ body{
     height: auto;
     align-items: center;
     justify-content: center;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 p.current__position-setter{
@@ -46,10 +46,10 @@ span.current__position{
 main.main__court{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 80px);
+    grid-template-rows: repeat(6, 50px);
     margin: 28px 10px;
     gap: 2px;
-    width: 80%;
+    width: 90%;
 }
 
 main.main__court >
@@ -125,8 +125,7 @@ button.action__rotation{
 }
 
 /* FORM */
-
-button#form__update-players{
+button#button__open-dialog{
     border: none;
     padding: 10px 8px;
     background-color: rgb(34, 255, 34);
@@ -135,26 +134,24 @@ button#form__update-players{
     font-size: 12px;
     font-weight: 600;
     margin: 18px 0;
-    position: absolute;
-    top: 8px;
-    right: 10px;
     cursor: pointer;
 }
 
-dialog#favDialog{
-    width: 60%;
+dialog#dialog__update-players-name{
+    width: 80%;
     margin: auto;
     padding: 20px;
     border-radius: 4px;
 }
 
-dialog#favDialog form{
+dialog#dialog__update-players-name form{
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
 }
 
-dialog#favDialog form .players__names{
+dialog#dialog__update-players-name form .players__names{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -201,4 +198,68 @@ menu.menu__form button[type="reset"]{
 
 menu.menu__form button[type="submit"]{
     background-color: rgb(34, 255, 34);
+}
+
+/* DETAILS PLAYERS NAME */
+section.section__players-name{
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px; 
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 6px;
+    color: black;
+    gap: 12px;
+}
+
+section.section__players-name.hidden{
+    display: none;
+}
+
+section.section__players-name label{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+section.section__players-name ul{
+    list-style: disc;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+section.section__players-name ul li{
+    display: flex;
+    gap: 10px;
+}
+
+section.section__players-name ul b{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+@media screen and (orientation: landscape) {
+    main.main__court{
+        grid-template-columns: repeat(7, 1fr);
+        width: 60%;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 500px){
+    main.main__court{
+        grid-template-columns: repeat(7, 14%);
+        grid-template-rows: repeat(6, 60px);
+    }
+
+    .court__square.inserted{
+        font-size: 8px;
+        padding: 2px;
+    }
+
+    .court__square.inserted p{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 }

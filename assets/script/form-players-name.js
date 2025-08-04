@@ -1,17 +1,14 @@
-(function () {
-  var updateButton = document.getElementById("form__update-players");
-  var cancelButton = document.getElementById("cancel");
-  var dialogPlayersName = document.getElementById("dialog__players-name");
+var openDialoginButton = document.getElementById("button__open-dialog");
+var cancelButton = document.getElementById("cancel");
+var dialogFormPlayersName = document.getElementById("dialog__update-players-name");
 
-  updateButton.addEventListener("click", function () {
-    dialogPlayersName.showModal();
-  });
+openDialoginButton.addEventListener("click", function () {
+    dialogFormPlayersName.showModal();
+});
 
-  cancelButton.addEventListener("click", function () {
-    dialogPlayersName.close();
-  });
-})();
-
+cancelButton.addEventListener("click", function () {
+    dialogFormPlayersName.close();
+});
 
 const players = {
     1: {
@@ -49,7 +46,8 @@ const form = document.getElementById("form__players-name");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    var playersUpdated = Object.assign({}, players)
+    const storagePlayers = localStorage.getItem("PLAYERS__NAME");
+    var playersUpdated = storagePlayers ? JSON.parse(storagePlayers) : players;
 
     const setter__name = document.getElementById("setter__name").value;
     const libero__name = document.getElementById("libero__name").value;
@@ -58,7 +56,6 @@ form.addEventListener("submit", (e) => {
     const mdbii__name = document.getElementById("mdbii__name").value;
     const othi__name = document.getElementById("othi__name").value;
     const othii__name = document.getElementById("othii__name").value;
-
 
     if (setter__name && setter__name.length > 2) {
         playersUpdated[1].name = setter__name;
@@ -83,4 +80,6 @@ form.addEventListener("submit", (e) => {
     }
 
     localStorage.setItem("PLAYERS__NAME", JSON.stringify(playersUpdated));
+    dialogFormPlayersName.close();
+    updatePlayers();
 })

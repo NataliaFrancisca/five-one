@@ -1,5 +1,5 @@
 import { rotations } from './assets/db/rotation.js';
-import { setPlayersIntoBackRow, setPlayersIntoFrontRow } from './assets/script/insert-player.js';
+import { setPlayersIntoBackRow, setPlayersIntoFrontRow, insertPlayerName } from './assets/script/insert-player.js';
 
 var court = document.querySelector(".main__court");
 var currentSetterPosition = document.querySelector(".current__position");
@@ -14,10 +14,53 @@ const rotationsBase = {
     5: 2
 }
 
-const storagePlayers = localStorage.getItem("PLAYERS__NAME");
-const players = JSON.parse(storagePlayers);
+let playersBase = {
+    1: {
+        "position": "setter",
+        "name": "setter",
+    },
+    7: {
+        "position": "libero",
+        "name": "libero",
+    },
+    6: {
+        "position": "middle 2",
+        "name": "middle 2",
+    },
+    5: {
+        "position": "outside 2",
+        "name": "outside 2",
+    },
+    4: {
+        "position": "opposite",
+        "name": "opposite",
+    },
+    3: {
+        "position": "middle 1",
+        "name": "middle 1",
+    },
+    2: {
+        "position": "outside 1",
+        "name": "outside 1",
+    }
+}
 
+let players = playersBase;
 let current = 0;
+
+function updatePlayersAfterFormSubmit(){
+    const storagePlayers = localStorage.getItem("PLAYERS__NAME");
+    const section = document.querySelector(".section__players-name");
+
+    if (storagePlayers == null){
+        players = playersBase;
+        section.classList.add("hidden");
+    }else{
+        players = JSON.parse(storagePlayers);
+        insertPlayerName(players);
+        section.classList.remove("hidden");
+    }
+}
 
 function updatePlayersNextRotation(){
     var prev = Object.assign({}, players)
@@ -30,7 +73,7 @@ function updatePlayersNextRotation(){
     players[2] = prev[3]
 }
 
-function updatePlayersBackRotation(){
+export function updatePlayersBackRotation(){
     var prev = Object.assign({}, players)
 
     players[1] = prev[6]
@@ -96,7 +139,11 @@ export function receiving(){
     setPlayersIntoBackRow(players, rotation.back, false);
 }
 
+updatePlayersAfterFormSubmit();
+
 window.serving = serving;
 window.receiving = receiving;
 window.back = back;
 window.next = next;
+
+window.updatePlayers = updatePlayersAfterFormSubmit;

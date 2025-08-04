@@ -56,3 +56,31 @@ export function setPlayersIntoFrontRow(players, rotation){
     playerPositionThree.lastChild.innerHTML = 3;
     playerPositionTwo.lastChild.innerHTML = 2;
 }
+
+function createPlayerName(text){
+    const player = document.createElement("li");
+    const b = document.createElement("b");
+    b.innerHTML += text;
+    player.appendChild(b);
+    return player;
+}
+
+export function insertPlayerName(players){
+    const sectionPlayersName = document.getElementById("ul__players-name");
+    
+    const setter = createPlayerName("Setter: " + players[1].name);
+    const opposite = createPlayerName("Opposite: " + players[4].name);
+    const middleBlockerI = createPlayerName("Middle Blocker I: " + players[3].name);
+    const middleBlockerII = createPlayerName("Middle Blocker II: " + players[6].name);
+    const outsideHitterI = createPlayerName("Outside Hitter I: " + players[2].name);
+    const outsideHitterII = createPlayerName("Outside Hitter II: " + players[5].name);
+    const libero = createPlayerName("Libero: " + players[7].name);
+
+    sectionPlayersName.appendChild(setter);
+    sectionPlayersName.appendChild(opposite);
+    sectionPlayersName.appendChild(middleBlockerI);
+    sectionPlayersName.appendChild(middleBlockerII);
+    sectionPlayersName.appendChild(outsideHitterI);
+    sectionPlayersName.appendChild(outsideHitterII);
+    sectionPlayersName.appendChild(libero);
+}

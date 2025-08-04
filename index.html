@@ -10,45 +10,45 @@
 
     <!-- FORM PLAYERS NAME -->
     <menu>
-        <button id="form__update-players">update <br> player's name</button>
+        <button id="button__open-dialog">update player's name</button>
     </menu>
 
-    <dialog id="dialog__players-name">
+    <dialog id="dialog__update-players-name">
         <form method="dialog" id="form__players-name">
             <section class="players__names">
                 <fieldset class="fieldset__player">
                     <label for="setter__name">Setter:</label>
-                    <input type="text" id="setter__name" />
+                    <input type="text" id="setter__name" minlength="4" maxlength="10" />
                 </fieldset>
                 
                 <fieldset class="fieldset__player">
                     <label for="libero__name">Libero:</label>
-                    <input type="text" id="libero__name" />
+                    <input type="text" id="libero__name" minlength="4" maxlength="10/>
                 </fieldset>
 
                 <fieldset class="fieldset__player">
                     <label for="opp__name">Opposite:  </label>
-                    <input type="text" id="opp__name" />
+                    <input type="text" id="opp__name" minlength="4" maxlength="10/>
                 </fieldset>
 
                 <fieldset class="fieldset__player">
                     <label for="mdbi__name">Middle Blocker I: </label>
-                    <input type="text" id="mdbi__name" />
+                    <input type="text" id="mdbi__name" minlength="4" maxlength="10/>
                 </fieldset>
 
                 <fieldset class="fieldset__player">
                     <label for="mdbii__name">Middle Blocker II: </label>
-                    <input type="text" id="mdbii__name" />
+                    <input type="text" id="mdbii__name" minlength="4" maxlength="10/>
                 </fieldset>
 
                 <fieldset class="fieldset__player">
                     <label for="othi__name">Outside Hitter I: </label>
-                    <input type="text" id="othi__name" />
+                    <input type="text" id="othi__name" minlength="4" maxlength="10/>
                 </fieldset>
 
                 <fieldset class="fieldset__player">
                     <label for="othii__name">Outside Hitter II:  </label>
-                    <input type="text" id="othii__name" />
+                    <input type="text" id="othii__name" minlength="4" maxlength="10/>
                 </fieldset>
             </section>
             <menu class="menu__form">
@@ -81,9 +81,16 @@
             <button onclick="next()" class="action__rotation">next</button>
         </div>
     </section>
-    
+
+    <section class="section__players-name hidden">
+        <label>player's name:</label>
+
+        <ul id="ul__players-name">
+        </ul>
+    </section>
+ 
 <script type="module" src="script.js"></script>
-<script src="assets/script/form-players-name.js"></script>
+<script type="module" src="assets/script/form-players-name.js"></script>
 <script src="assets/script/insert-court.js"></script>
 </body>
 </html>

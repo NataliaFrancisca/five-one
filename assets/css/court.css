@@ -1,0 +1,117 @@
+main.main__vb-court{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 80px);
+    width: 40%;
+    gap: 2px;
+}
+
+main.main__vb-court > div.line__1, div.line__2, div.line__3{
+    background-color: orange;
+}
+
+main.main__vb-court > div.line__4, div.line__5, div.line__6{
+    background-color: rgb(61, 106, 255);
+}
+
+div.court__square.inserted{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 8px;
+    width: 100%;
+}
+
+div.court__square.inserted p{
+    font-size: 12px;
+    font-weight: 700;
+    text-wrap: wrap;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+div.court__square.inserted span{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+div.court__square.inserted.player__serving{
+    background-color: rgb(34, 255, 34);   
+    font-weight: 600;
+}
+
+/* SECTION BUTTON */
+
+section.section__group-action-court{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 40%;
+}
+
+section.section__group-action-court div{
+    display: flex;
+    gap: 18px;
+}
+
+section.section__group-action-court button{
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 2px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 14px 10px;
+    transition: all ease-in-out .2s;
+    width: 60%;
+}
+
+section.section__group-action-court button.action__game{
+    background-color: rgb(255, 34, 174);
+}
+
+section.section__group-action-court button.action__game:hover{
+    background-color: rgb(214, 29, 146);
+}
+
+section.section__group-action-court button.action__rotation{
+    background-color: rgb(34, 141, 255);
+}
+
+section.section__group-action-court button.action__rotation:hover{
+    background-color: rgb(32, 128, 231);
+}
+
+
+@media screen and (max-width: 1030px){
+    main.main__vb-court{
+        width: 50%;
+    }
+
+    section.section__group-action-court{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 830px){
+    main.main__vb-court{
+        width: 70%;
+    }
+
+    section.section__group-action-court{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 630px){
+    main.main__vb-court{
+        width: 90%;
+        grid-template-rows: repeat(6, 60px);
+    }
+
+    section.section__group-action-court{
+        width: 90%;
+    }
+}

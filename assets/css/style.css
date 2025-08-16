@@ -15,251 +15,49 @@ body{
     height: auto;
     align-items: center;
     justify-content: center;
-    padding: 20px 0;
+    padding: 40px 0;
+    gap: 40px;
 }
 
-p.current__position-setter{
-    font-size: 18px;
-    font-family: "Roboto Slab", serif;
-    font-weight: 600;
-}
-
-p.current__action{
-    font-size: 18px;
-    font-family: "Roboto Slab", serif;
-    font-weight: 600;
-    background-color: rgb(61, 116, 255);
-    color: white;
-    padding: 8px;
-    margin: 4px 0;
-}
-
-span.current__position{
-    font-size: 14px;
-    font-weight: 800;
-    background-color: rgb(61, 116, 255);
-    color: white;
-    padding: 0 10px;
-    border-radius: 4px;
-}
-
-main.main__court{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 50px);
-    margin: 28px 10px;
-    gap: 2px;
-    width: 90%;
-}
-
-main.main__court >
-div.line__1, div.line__2, div.line__3{
-    background-color: orange;
-}
-
-main.main__court >
-div.line__4, div.line__5, div.line__6{
-    background-color: rgb(61, 106, 255);
-}
-
-.court__square.inserted{
-    border-radius: 4px;
-    display: flex;
-    box-shadow: 2px 2px #cbcbcb;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px;
-}
-
-.court__square.inserted p{
-    font-size: 12px;
-    font-weight: 700;
-    text-wrap: wrap;
-    text-align: center;
-    word-wrap: break-word;
-}
-
-.court__square.inserted span{
-    font-size: 10px;
-    font-weight: bold;
-}
-
-.court__square.inserted.player__serving{
-    background-color: rgb(34, 255, 34);   
-    font-weight: 600;
-}
-
-section.group__button{
+article.article__detail-team{
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 300px;
-}
-
-section.group__button button{
-    padding: 12px 18px;
-    width: 100%;
-    border-radius: 12px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    font-family: "Roboto Slab", serif;
-    font-weight: 600;
-}
-
-section.group__button div.group__action{
-    display: flex;
-    gap: 20px;
-}
-
-button.action__game{
-    background-color: rgb(61, 116, 255);
-    color: white;
-}
-
-button.action__rotation{
-    background-color: rgb(34, 255, 34);
-}
-
-/* FORM */
-button#button__open-dialog{
-    border: none;
-    padding: 10px 8px;
-    background-color: rgb(34, 255, 34);
-    box-shadow: 2px 2px rgba(255, 255, 255, 0.4);
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    margin: 18px 0;
-    cursor: pointer;
-}
-
-dialog#dialog__update-players-name{
-    width: 80%;
-    margin: auto;
+    width: 40%;
+    gap: 16px;
     padding: 20px;
-    border-radius: 4px;
-}
-
-dialog#dialog__update-players-name form{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
-}
-
-dialog#dialog__update-players-name form .players__names{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-fieldset.fieldset__player{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    border: none;
-}
-
-fieldset.fieldset__player label{
-    font-weight: 700;
-    font-size: 14px;
-}
-
-fieldset.fieldset__player input{
-    outline: none;
-    border-radius: 4px;
-    padding: 8px 10px;
-}
-
-menu.menu__form{
-    display: flex;
-    justify-content: space-around;
-}
-
-menu.menu__form button{
-    padding: 12px 10px;
-    border: none;
-    padding: 10px 12px;
-    box-shadow: 2px 2px rgba(255, 255, 255, 0.4);
+    background-color: rgba(173, 173, 173, .7);
     border-radius: 8px;
-    font-size: 12px;
+}
+
+article.article__detail-team p{
+    font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
-}
-
-menu.menu__form button[type="reset"]{
-    background-color: red;
-    color: white;
-}
-
-menu.menu__form button[type="submit"]{
-    background-color: rgb(34, 255, 34);
-}
-
-/* DETAILS PLAYERS NAME */
-section.section__players-name{
     display: flex;
-    flex-direction: column;
-    padding: 12px 14px; 
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 6px;
-    color: black;
-    gap: 12px;
-}
-
-section.section__players-name.hidden{
-    display: none;
-}
-
-section.section__players-name label{
-    font-size: 18px;
-    font-weight: 600;
-}
-
-section.section__players-name ul{
-    list-style: disc;
-    list-style-position: inside;
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 8px;
 }
 
-section.section__players-name ul li{
-    display: flex;
-    gap: 10px;
+article.article__detail-team span{
+    font-weight: 800;
+    border-radius: 8px;
+    background-color: rgb(125, 255, 105);
+    padding: 4px 8px;
 }
 
-section.section__players-name ul b{
-    font-weight: 500;
-    font-size: 14px;
-}
-
-@media screen and (orientation: landscape) {
-    main.main__court{
-        grid-template-columns: repeat(7, 1fr);
-        width: 60%;
+@media screen and (max-width: 1030px){
+    article.article__detail-team{
+        width: 50%;
     }
 }
 
-@media screen and (orientation: portrait) and (max-width: 500px){
-    main.main__court{
-        grid-template-columns: repeat(7, 14%);
-        grid-template-rows: repeat(6, 60px);
+@media screen and (max-width: 830px){
+    article.article__detail-team{
+        width: 70%;
     }
+}
 
-    .court__square.inserted{
-        font-size: 8px;
-        padding: 2px;
-    }
-
-    .court__square.inserted p{
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
+@media screen and (max-width: 630px){
+    article.article__detail-team{
+        width: 90%;
     }
 }

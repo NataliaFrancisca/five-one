@@ -5,92 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>five-one vb</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/menu.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+    <link rel="stylesheet" href="assets/css/court.css">
+    <link rel="stylesheet" href="assets/css/player.css">
 </head>
 <body>
 
-    <!-- FORM PLAYERS NAME -->
-    <menu>
-        <button id="button__open-dialog">update player's name</button>
+    <!-- Menu Actions -->
+    <menu class="menu__main-action">
+        <button id="btn__open-dialog">atualizar nome dos atletas</button>
+        <button id="btn__fem-team">feminino</button>
+        <button id="btn__man-team">masculino</button>
     </menu>
 
-    <dialog id="dialog__update-players-name">
-        <form method="dialog" id="form__players-name">
-            <section class="players__names">
-                <fieldset class="fieldset__player">
-                    <label for="setter__name">Setter:</label>
-                    <input type="text" id="setter__name" minlength="4" maxlength="10" />
-                </fieldset>
+    <article class="article__detail-team">
+        <p id="p__current-team">time atual: <span></span></p>
+        <p id="p__current-action">ação atual: <span>realizando saque</span></p>
+        <p id="p__current-setter-position">posição atual do levantador: <span>1</span></p>
+    </article>
+ 
+    <dialog class="dialog__update-names">
+        <form method="dialog" id="form__update-names">
+           
+            <section class="section__group-radio">
+                <legend>qual time você deseja fazer a atualização?</legend>
                 
-                <fieldset class="fieldset__player">
-                    <label for="libero__name">Libero:</label>
-                    <input type="text" id="libero__name" minlength="4" maxlength="10/>
-                </fieldset>
+                <fieldset>
+                    <label>
+                        feminino
+                        <input type="radio" name="team__choice" value="FEMININO" id="team__choice-fem" />
+                    </label>
 
-                <fieldset class="fieldset__player">
-                    <label for="opp__name">Opposite:  </label>
-                    <input type="text" id="opp__name" minlength="4" maxlength="10/>
-                </fieldset>
-
-                <fieldset class="fieldset__player">
-                    <label for="mdbi__name">Middle Blocker I: </label>
-                    <input type="text" id="mdbi__name" minlength="4" maxlength="10/>
-                </fieldset>
-
-                <fieldset class="fieldset__player">
-                    <label for="mdbii__name">Middle Blocker II: </label>
-                    <input type="text" id="mdbii__name" minlength="4" maxlength="10/>
-                </fieldset>
-
-                <fieldset class="fieldset__player">
-                    <label for="othi__name">Outside Hitter I: </label>
-                    <input type="text" id="othi__name" minlength="4" maxlength="10/>
-                </fieldset>
-
-                <fieldset class="fieldset__player">
-                    <label for="othii__name">Outside Hitter II:  </label>
-                    <input type="text" id="othii__name" minlength="4" maxlength="10/>
+                    <label>
+                        masculino
+                        <input type="radio" name="team__choice" value="MASCULINO" id="team__choice-man" />
+                    </label>
                 </fieldset>
             </section>
-            <menu class="menu__form">
-                <button id="cancel" type="reset">Cancel</button>
-                <button type="submit">Confirm</button>
+
+            <legend>digite o nome dos jogadores para cada posição.</legend>
+
+            <section class="section__group-field">
+                <fieldset class="field__player">
+                    <label for="setter__name">levantador:</label>
+                    <input type="text" id="setter__name" minlength="3" maxlength="10" />
+                </fieldset>
+
+                <fieldset class="field__player">
+                    <label for="libero__name">líbero:</label>
+                    <input type="text" id="libero__name" minlength="3" maxlength="10" />
+                </fieldset>
+                
+                <fieldset class="field__player">
+                    <label for="opp__name">oposto:  </label>
+                    <input type="text" id="opp__name" minlength="3" maxlength="10" />
+                </fieldset>
+
+                <fieldset class="field__player">
+                    <label for="mdbi__name">central I: </label>
+                    <input type="text" id="mdbi__name" minlength="3" maxlength="10" />
+                </fieldset>
+
+                <fieldset class="field__player">
+                    <label for="mdbii__name">central II: </label>
+                    <input type="text" id="mdbii__name" minlength="3" maxlength="10" />
+                </fieldset>
+
+                <fieldset class="field__player">
+                    <label for="othi__name">ponteiro I: </label>
+                    <input type="text" id="othi__name" minlength="3" maxlength="10" />
+                </fieldset>
+
+                <fieldset class="field__player">
+                    <label for="othii__name">ponteiro II:  </label>
+                    <input type="text" id="othii__name" minlength="4" maxlength="10" />
+                </fieldset> 
+            </section>
+            
+            <menu class="menu__form-action">
+                <button type="reset" id="btn__cancel">cancelar</button>
+                <button  id="btn__confirm">confirmar</button>
             </menu>
         </form>
     </dialog>
 
-    <!-- DETAILS -->
-    <p class="current__position-setter">current setter's position: 
-        <span class="current__position">1</span>
-    </p>
-
-    <p class="current__action">serving</p>
-
-    <!-- COURT -->
-    <main class="main__court">  
+    <main class="main__vb-court">  
     </main>
 
-    <!-- ACTION BUTTONS -->
-    <section class="group__button">
-        <div class="group__action">
-            <button onclick="serving()" class="action__game">serving</button>
-            <button onclick="receiving()" class="action__game">receiving</button>
+    <section class="section__group-action-court">
+        <div>
+            <button 
+                class="action__game" 
+                id="btn__action-serving">
+                time <b>realizando</b> saque
+            </button>
+            <button 
+                class="action__game" 
+                id="btn__action-receiving">
+                time <b>recebendo</b> saque
+            </button>
         </div>
 
-        <div class="group__action">
-            <button onclick="back()" class="action__rotation">back</button>
-            <button onclick="next()" class="action__rotation">next</button>
-        </div>
+        <div>
+            <button 
+                class="action__rotation" 
+                id="btn__action-back-rotation">
+                rotação <b>anterior</b>
+            </button>
+             <button 
+                class="action__rotation" 
+                id="btn__action-next-rotation">
+                rotação <b>seguinte</b>
+            </button>
+        </div
     </section>
 
-    <section class="section__players-name hidden">
-        <label>player's name:</label>
+<script src="assets/script/court.js"></script>
 
-        <ul id="ul__players-name">
-        </ul>
-    </section>
- 
-<script type="module" src="script.js"></script>
-<script type="module" src="assets/script/form-players-name.js"></script>
-<script src="assets/script/insert-court.js"></script>
+<script type="module" src="assets/script/menu.js"></script>
+<script type="module" src="assets/script/form.js"></script>
+<script type="module" src="assets/script/player.js"></script>
+<script type="module" src="assets/script/game.js"></script>
 </body>
 </html>

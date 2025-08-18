@@ -17,20 +17,20 @@ const PLAYER__SCHEMA = {
         "name": "central I",
     },
     5: {
-        "position": "ponteiro 1",
-        "name": "ponteiro 1",
+        "position": "ponteiro I",
+        "name": "ponteiro I",
     },
     4: {
         "position": "oposto",
         "name": "oposto",
     },
     3: {
-        "position": "central 2",
-        "name": "central 2",
+        "position": "central II",
+        "name": "central II",
     },
     2: {
-        "position": "ponteiro 2",
-        "name": "ponteiro 2",
+        "position": "ponteiro II",
+        "name": "ponteiro II",
     }
 }
 

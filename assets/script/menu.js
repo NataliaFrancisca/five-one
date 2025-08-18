@@ -21,6 +21,12 @@ if (storage && storage == "FEMININO"){
 }
 
 btnTeamFemale.addEventListener("click", () => {
+
+    if (localStorage.getItem("PLAYERS_NAME_FEM") == null){
+        alert("Cadastre o time feminino para exibir na quadra.");
+        return;
+    }
+
     localStorage.setItem(CURRENT_TEAM_CHOICE, "FEMININO");
     const span = textCurrentTeam.lastElementChild;
     span.innerHTML = "feminino";
@@ -28,6 +34,11 @@ btnTeamFemale.addEventListener("click", () => {
 });
 
 btnTeamMale.addEventListener("click", () => {
+    if (localStorage.getItem("PLAYERS_NAME_MAN") == null){
+        alert("Cadastre o time masculino para exibir na quadra.");
+        return;
+    }
+
     localStorage.setItem(CURRENT_TEAM_CHOICE, "MASCULINO");
     const span = textCurrentTeam.lastElementChild;
     span.innerHTML = "masculino";

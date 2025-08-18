@@ -27,14 +27,21 @@ div.court__square.inserted{
 div.court__square.inserted p{
     font-size: 12px;
     font-weight: 700;
-    text-wrap: wrap;
     text-align: center;
-    word-wrap: break-word;
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere; /* ou break-word */
+    max-width: 10ch;
 }
 
 div.court__square.inserted span{
-    font-size: 10px;
+    font-size: 14px;
     font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background-color:white;
+    color: black;
 }
 
 div.court__square.inserted.player__serving{
@@ -108,10 +115,20 @@ section.section__group-action-court button.action__rotation:hover{
 @media screen and (max-width: 630px){
     main.main__vb-court{
         width: 90%;
-        grid-template-rows: repeat(6, 60px);
+        grid-template-rows: repeat(6, 70px);
+        grid-template-columns: repeat(7, 14%);
     }
 
     section.section__group-action-court{
         width: 90%;
+    }
+
+    div.court__square.inserted{
+        padding: 2px;
+    }
+
+     div.court__square.inserted p,
+     div.court__square.inserted span{
+        font-size: 10px;
     }
 }

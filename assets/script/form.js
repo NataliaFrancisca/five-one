@@ -74,13 +74,13 @@ formUpdateNames.addEventListener("submit", (e) => {
     const teamChoiceFem = document.getElementById("team__choice-fem");
     const teamChoiceMan = document.getElementById("team__choice-man");
     
-    players[1].name = setterName;
-    players[7].name = liberoName;
-    players[4].name = oppName;
-    players[3].name = mdbiName;
-    players[6].name = mdbiiName;
-    players[2].name = othiName;
-    players[5].name = othiiName;
+    players[1].name = setterName.length >= 3 ? setterName : players[1].name;
+    players[7].name = liberoName.length >= 3 ? liberoName : players[7].name;
+    players[4].name = oppName.length >= 3 ? oppName : players[4].name;
+    players[3].name = mdbiName.length >= 3 ? mdbiName : players[3].name;
+    players[6].name = mdbiiName.length >= 3 ? mdbiiName : players[6].name;
+    players[2].name = othiName.length >= 3 ? othiName : players[2].name;
+    players[5].name = othiiName.length >= 3 ? othiiName : players[5].name;
 
     if (teamChoiceFem.checked){
         localStorage.setItem(CURRENT_TEAM_CHOICE, "FEMININO");

@@ -91,6 +91,19 @@ section.section__group-action-court button.action__rotation:hover{
     background-color: rgb(32, 128, 231);
 }
 
+.court__square {
+  position: relative;
+  transition: transform 0.6s ease;
+}
+
+.move-right {
+  transform: translateX(100px);
+}
+
+.move-left {
+  transform: translateX(-100px);
+}
+
 
 @media screen and (max-width: 1030px){
     main.main__vb-court{

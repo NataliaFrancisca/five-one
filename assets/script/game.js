@@ -117,8 +117,6 @@ function runAnimationFrontRow(){
         case 6:
             runAnimationWhile(frontRow[0], frontRow[1])
             break;
-        default:
-            console.log("no effect");
     }
 }
 
@@ -132,8 +130,6 @@ function runAnimationBackRow(){
         case 4:
             runAnimationWhile(backRow[0], backRow[2])
             break;
-        default:
-            console.log("no effect");
     }
 }
 
@@ -181,6 +177,9 @@ function serving(){
 
     insertIntoFrontRow(players, rotation.front);
     insertIntoBackRow(players, rotation.back, true);
+
+    runAnimationFrontRow();
+    runAnimationBackRow();
 }
 
 function receiving(){

@@ -21,7 +21,6 @@ if (storage && storage == "FEMININO"){
 }
 
 btnTeamFemale.addEventListener("click", () => {
-
     if (localStorage.getItem("PLAYERS_NAME_FEM") == null){
         alert("Cadastre o time feminino para exibir na quadra.");
         return;
@@ -44,6 +43,7 @@ btnTeamMale.addEventListener("click", () => {
     span.innerHTML = "masculino";
     updateSchemaAfterFormSubmit();
 });
+
 
 btnOpenDialog.addEventListener("click", () => {
     dialogUpdateNames.showModal();

@@ -1,46 +1,63 @@
-import { updateSchemaAfterFormSubmit } from "./game.js";
+// import { updateSchemaAfterFormSubmit } from "./game.js";
 
 const CURRENT_TEAM_CHOICE = "CURRENT__TEAM__CHOICE";
 
 const btnOpenDialog = document.getElementById("btn__open-dialog");
 const btnCloseDialog = document.getElementById("btn__cancel");
-const btnTeamFemale = document.getElementById("btn__fem-team");
-const btnTeamMale = document.getElementById("btn__man-team");
+
+const btnTeamA = document.getElementById("btn__a-team");
+const btnTeamB = document.getElementById("btn__b-team");
+const btnTeamC = document.getElementById("btn__c-team");
 
 const dialogUpdateNames = document.querySelector(".dialog__update-names");
 const textCurrentTeam = document.getElementById("p__current-team");
 
 const storage = localStorage.getItem(CURRENT_TEAM_CHOICE);
 
-if (storage && storage == "FEMININO"){
+if (storage && storage == "PLAYERS__FROM-TEAM-A"){
     const span = textCurrentTeam.lastElementChild;
-    span.innerHTML = "feminino";
-} else if (storage && storage == "MASCULINO"){
+    span.innerHTML = "time a";
+} else if (storage && storage == "PLAYERS__FROM-TEAM-B"){
     const span = textCurrentTeam.lastElementChild;
-    span.innerHTML = "masculino";
+    span.innerHTML = "time b";
+} else if (storage && storage == "PLAYERS__FROM-TEAM-C"){
+    const span = textCurrentTeam.lastElementChild;
+    span.innerHTML = "time c";
 }
 
-btnTeamFemale.addEventListener("click", () => {
-    if (localStorage.getItem("PLAYERS_NAME_FEM") == null){
-        alert("Cadastre o time feminino para exibir na quadra.");
+btnTeamA.addEventListener("click", () => {
+    if (localStorage.getItem("PLAYERS__FROM-TEAM-A") == null){
+        alert("Cadastre o time A para exibir na quadra.");
         return;
     }
 
-    localStorage.setItem(CURRENT_TEAM_CHOICE, "FEMININO");
+    localStorage.setItem(CURRENT_TEAM_CHOICE, "PLAYERS__FROM-TEAM-A");
     const span = textCurrentTeam.lastElementChild;
-    span.innerHTML = "feminino";
+    span.innerHTML = "time A";
     updateSchemaAfterFormSubmit();
 });
 
-btnTeamMale.addEventListener("click", () => {
-    if (localStorage.getItem("PLAYERS_NAME_MAN") == null){
-        alert("Cadastre o time masculino para exibir na quadra.");
+btnTeamB.addEventListener("click", () => {
+    if (localStorage.getItem("PLAYERS__FROM-TEAM-B") == null){
+        alert("Cadastre o time b para exibir na quadra.");
         return;
     }
 
-    localStorage.setItem(CURRENT_TEAM_CHOICE, "MASCULINO");
+    localStorage.setItem(CURRENT_TEAM_CHOICE, "PLAYERS__FROM-TEAM-B");
     const span = textCurrentTeam.lastElementChild;
-    span.innerHTML = "masculino";
+    span.innerHTML = "time B";
+    updateSchemaAfterFormSubmit();
+});
+
+btnTeamC.addEventListener("click", () => {
+    if (localStorage.getItem("PLAYERS__FROM-TEAM-C") == null){
+        alert("Cadastre o time c para exibir na quadra.");
+        return;
+    }
+
+    localStorage.setItem(CURRENT_TEAM_CHOICE, "PLAYERS__FROM-TEAM-C");
+    const span = textCurrentTeam.lastElementChild;
+    span.innerHTML = "time C";
     updateSchemaAfterFormSubmit();
 });
 

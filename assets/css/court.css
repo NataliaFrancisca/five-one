@@ -14,6 +14,15 @@ main.main__vb-court > div.line__4, div.line__5, div.line__6{
     background-color: rgb(61, 106, 255);
 }
 
+main.main__vb-court div.set__temporarie-bg-orange{
+    background-color: rgb(255, 165, 0);
+}
+
+main.main__vb-court div.set__temporarie-bg-blue{
+    background-color:  rgb(61, 106, 255);
+}
+
+
 div.court__square.inserted{
     align-items: center;
     display: flex;
@@ -31,7 +40,7 @@ div.court__square.inserted p{
 
     white-space: normal;
     word-break: normal;
-    overflow-wrap: anywhere; /* ou break-word */
+    overflow-wrap: anywhere; 
     max-width: 10ch;
 }
 
@@ -61,6 +70,15 @@ section.section__group-action-court{
 section.section__group-action-court div{
     display: flex;
     gap: 18px;
+}
+
+section.section__group-action-court div#group__action-game{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+div#group__action-game button{
+    width: 100%;
 }
 
 section.section__group-action-court button{
@@ -143,5 +161,10 @@ section.section__group-action-court button.action__rotation:hover{
      div.court__square.inserted p,
      div.court__square.inserted span{
         font-size: 10px;
+    }
+
+    section.section__group-action-court div#group__action-game{
+        display: flex;
+        flex-direction: column;
     }
 }

@@ -1,4 +1,4 @@
-dialog.dialog__update-names{
+dialog{
     border: none;
     border-radius: 8px;
     margin: auto;
@@ -6,24 +6,30 @@ dialog.dialog__update-names{
     width: 40%;
 }
 
-form#form__update-names{
+dialog form{
     display: flex;
     gap: 26px;
     flex-direction: column;
     width: 100%;
+    height: auto;
+}
+
+section.section__fields{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
 }
 
 section.section__group-radio{
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 section.section__group-radio fieldset{
     display: flex;
     border: none;
-    gap: 10px;
-    padding: 0 14px;
+    gap: 20px;
 }
 
 section.section__group-radio fieldset label{
@@ -39,24 +45,17 @@ section.section__group-radio fieldset input[type=radio]{
     accent-color: green;
 }
 
-section.section__group-field{
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
-    gap: 12px;
-}
-
 fieldset.field__player{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     border: none;
-} 
+}
 
 fieldset.field__player label{
     font-size: 14px;
     font-weight: 700;
-} 
+}
 
 fieldset.field__player input{
     font-size: 12px;
@@ -64,16 +63,23 @@ fieldset.field__player input{
     border-radius: 8px;
     padding: 8px 10px;
     border: solid 1px black;
-} 
+}
 
-menu.menu__form-action{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-around;
+fieldset.field__player select{
+    font-size: 14px;
+    outline: none;
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: solid 1px black;
+    text-transform: capitalize;
+}
+
+dialog form div{
+    display: flex;
     gap: 10px;
 }
 
-menu.menu__form-action button{
+dialog form button{
     border: none;
     border-radius: 8px;
     box-shadow: 2px 2px rgba(255, 255, 255, 0.4);
@@ -82,32 +88,50 @@ menu.menu__form-action button{
     font-weight: 600;
     padding: 14px 10px;
     width: 100%;
+    transition: all ease-in-out .4s;
 }
 
-menu.menu__form-action button#btn__cancel{
+dialog form button.btn__cancel{
     background-color: rgb(192, 0, 0);
     color: rgb(240, 240, 240);
 }
 
-menu.menu__form-action button#btn__confirm{
+dialog form button.btn__cancel:hover{
+    background-color: rgb(147, 0, 0);
+}
+
+dialog form button.btn__confirm{
     background-color: rgb(38, 192, 0);
     color: black;
 }
 
+dialog form button.btn__confirm:hover{
+    background-color: rgb(29, 145, 0)
+}
+
+span#span__add-fields{
+    font-size: 14px;
+    font-weight: 800;
+    padding: 4px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 @media screen and (max-width: 1030px){
-    dialog.dialog__update-names{
+    dialog{
         width: 50%;
     }
 }
 
 @media screen and (max-width: 830px){
-    dialog.dialog__update-names{
+    dialog{
         width: 70%;
     }
 }
 
 @media screen and (max-width: 630px){
-    dialog.dialog__update-names{
+    dialog{
         width: 90%;
     }
-}
+} 

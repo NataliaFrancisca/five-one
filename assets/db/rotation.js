@@ -9,7 +9,7 @@ export const rotations = {
       "1": [5,6]
     },
 
-    "serving-before": {
+    "serve": {
       "4": [1,2],
       "3": [1,4],
       "2": [1,6],
@@ -18,7 +18,7 @@ export const rotations = {
       "1": [4,6]
     },
 
-    "serving-after": {
+    "serve-goal": {
       "4": [1,6],
       "3": [1,4],
       "2": [1,2],

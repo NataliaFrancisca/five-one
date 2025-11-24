@@ -30,10 +30,31 @@ function runAnimationWhile(goal, origin){
     }, 2000);
 }
 
+function setTemporarieBackgroundColor(origin, goal){
+    const bgOrigin = window.getComputedStyle(origin).backgroundColor;
+    const bgGoal = window.getComputedStyle(goal).backgroundColor;
+
+    if(bgOrigin == "rgb(255, 165, 0)" && bgGoal == "rgb(61, 106, 255)"){
+        goal.classList.add("set__temporarie-bg-orange");
+    }
+
+    if(bgOrigin == "rgb(34, 255, 34)" && bgGoal == "rgb(255, 165, 0)"){
+        goal.classList.add("set__temporarie-bg-blue");
+    }
+
+    if(bgOrigin == "rgb(61, 106, 255)" && bgGoal == "rgb(255, 165, 0)"){
+        goal.classList.add("set__temporarie-bg-blue");
+        origin.classList.add("set__temporarie-bg-orange");
+    }
+
+    runAnimationWhile(goal, origin)
+}
+
 export function runAnimation(currentRotation){
     const isAnAttackAction = currentGameAction.innerText.includes("realizando ataque");
-
+    
     switch(currentRotation){
+
         case 1 & isAnAttackAction:
 
             for (let i = 1; i < 7; i++){
@@ -43,23 +64,7 @@ export function runAnimation(currentRotation){
                 const origin = document.getElementById(`${attack[0]}-${attack[1]}`)
                 const goal = document.getElementById(`${attackgoal[0]}-${attackgoal[1]}`)
 
-                const bgOrigin = window.getComputedStyle(origin).backgroundColor;
-                const bgGoal = window.getComputedStyle(goal).backgroundColor;
-
-                if(bgOrigin == "rgb(255, 165, 0)" && bgGoal == "rgb(61, 106, 255)"){
-                    goal.classList.add("set__temporarie-bg-orange");
-                }
-
-                if(bgOrigin == "rgb(34, 255, 34)" && bgGoal == "rgb(255, 165, 0)"){
-                    goal.classList.add("set__temporarie-bg-blue");
-                }
-
-                if(bgOrigin == "rgb(61, 106, 255)" && bgGoal == "rgb(255, 165, 0)"){
-                    goal.classList.add("set__temporarie-bg-blue");
-                    origin.classList.add("set__temporarie-bg-orange");
-                }
-
-                runAnimationWhile(goal, origin)
+                setTemporarieBackgroundColor(origin, goal);
             }
            
             break;

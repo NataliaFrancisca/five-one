@@ -1,36 +1,36 @@
 export class Players{
     STORAGE_NAME = "db__players-name";
 
-    add(player){
+    constructor(){
         if(localStorage.getItem(this.STORAGE_NAME) == null){
-            const arr = new Array();
-            arr.push(player);
+            localStorage.setItem(this.STORAGE_NAME, JSON.stringify([]));
+        }
+    }
 
-            localStorage.setItem(this.STORAGE_NAME, JSON.stringify(arr));
-            return;
-        }   
-
+    add(player){
         const playersJSON = localStorage.getItem(this.STORAGE_NAME);
         const players = JSON.parse(playersJSON);
 
-        if (players.includes(player)){
+        const playerExists = players.find(p => p == player);
+
+        if (playerExists){
             return;
         }
 
-        players.push(player);
+        players.push(player.toUpperCase());
         localStorage.setItem(this.STORAGE_NAME, JSON.stringify(players));
     }
 
-    remove(){
+    remove(player){
+        const playersJSON = localStorage.getItem(this.STORAGE_NAME);
+        const players = JSON.parse(playersJSON);
 
+        const playersUpdated = players.filter((p) => p !== player);
+
+        localStorage.setItem(this.STORAGE_NAME, JSON.stringify(playersUpdated));
     }
 
     get(){
-        if(localStorage.getItem(this.STORAGE_NAME) == null){
-            alert("nenhum jogador foi cadastrado.");
-            return;
-        }
-        
         return JSON.parse(localStorage.getItem(this.STORAGE_NAME));
     }
 }

@@ -1,8 +1,8 @@
 main.main__vb-court{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, 14%);
     grid-template-rows: repeat(6, 80px);
-    width: 40%;
+    width: 45%;
     gap: 2px;
 }
 
@@ -37,25 +37,36 @@ div.court__square.inserted p{
     font-size: 12px;
     font-weight: 700;
     text-align: center;
+    background-color: white;
 
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: anywhere; 
-    max-width: 10ch;
+    border-radius: 8px;
+    padding: 4px 6px;
 }
 
 div.court__square.inserted span{
     font-size: 14px;
     font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 8px;
+    padding: 14px 10px;
     background-color:white;
     color: black;
+    display: none;
+    position: absolute;
+    width: max-content;
+    z-index: 1;
+    text-transform: capitalize;
 }
 
 div.court__square.inserted.player__serving{
     background-color: rgb(34, 255, 34);   
     font-weight: 600;
+}
+
+div.court__square.inserted.player__libero{
+    background-color: brown;
+}
+
+div.court__square:hover span{
+    display: flex;
 }
 
 /* SECTION BUTTON */
@@ -122,7 +133,6 @@ section.section__group-action-court button.action__rotation:hover{
   transform: translateX(-100px);
 }
 
-
 @media screen and (max-width: 1030px){
     main.main__vb-court{
         width: 50%;
@@ -146,7 +156,7 @@ section.section__group-action-court button.action__rotation:hover{
 @media screen and (max-width: 630px){
     main.main__vb-court{
         width: 90%;
-        grid-template-rows: repeat(6, 70px);
+        grid-template-rows: repeat(6, 80px);
         grid-template-columns: repeat(7, 14%);
     }
 

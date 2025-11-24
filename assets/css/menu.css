@@ -31,19 +31,11 @@ menu div.menu__teams{
     gap: 12px;
 }
 
-menu.menu__main-action button#btn__dialog-add{
+menu.menu__main-action div.menu__players button{
     background-color: rgb(34, 141, 255);
 }
 
-menu.menu__main-action button#btn__dialog-add:hover{
-    background-color: rgb(32, 128, 231);
-}
-
-menu.menu__main-action button#btn__dialog-register{
-    background-color: rgb(34, 141, 255);
-}
-
-menu.menu__main-action button#btn__dialog-register:hover{
+menu.menu__main-action div.menu__players button:hover{
     background-color: rgb(32, 128, 231);
 }
 
@@ -97,5 +89,9 @@ menu.menu__main-action button#btn__team-c:hover{
     menu.menu__main-action button{
         width: 100%;
         padding: 18px 10px;
+    }
+
+    menu div.menu__teams{
+        flex-direction: row;
     }
 }

@@ -1,17 +1,23 @@
 export class Team{
     name;
     players;
+    lastAction;
+    lastPosition;
 
-    constructor(){
+    constructor(name){
         this.players = {
-            "SETTER": '',
-            "LIBERO": '',
-            "OPPOSITE_HITTER": '',
-            "MIDDLE_BLOCK_I": '',
-            "MIDDLE_BLOCK_II": '',
-            "OUTSIDE_HITTER_I": '',
-            "OUTSIDE_HITTER_II": ''
+            "SETTER": 'LEVANTADOR',
+            "LIBERO": 'LÍBERO',
+            "OPPOSITE_HITTER": 'OPOSTO',
+            "MIDDLE_BLOCK_I": 'CENTRAL I',
+            "MIDDLE_BLOCK_II": 'CENTRAL II',
+            "OUTSIDE_HITTER_I": 'PONTEIRO I',
+            "OUTSIDE_HITTER_II": 'PONTEIRO II'
         }
+
+        this.name = name;
+        this.lastAction = "original";
+        this.lastPosition = 1;
     }
 
     setName(name){
@@ -23,5 +29,9 @@ export class Team{
         const name = player.name;          
 
         this.players[position] = name;
+    }
+
+    setPlayers(players){
+        this.players = players;
     }
 }

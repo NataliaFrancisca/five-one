@@ -33,14 +33,14 @@ function updateSelects(){
     })
 }
 
+
 allPlayersRegistered.forEach(select => {
     select.addEventListener("change", updateSelects);
 });
 
 updateSelects();
 
-formSetPlayersIntoTeam.addEventListener("submit", (e) => {
-    e.preventDefault();
+formSetPlayersIntoTeam.addEventListener("submit", () => {
     let teamChoice;
 
     if(teamChoiceA.checked){

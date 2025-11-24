@@ -52,6 +52,19 @@ fieldset.field__player{
     border: none;
 }
 
+fieldset.field__player.checkbox{
+    flex-direction: row;
+}
+
+fieldset.field__player.checkbox input{
+    cursor: pointer;
+}
+
+fieldset.field__player.checkbox label{
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
 fieldset.field__player label{
     font-size: 14px;
     font-weight: 700;

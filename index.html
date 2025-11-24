@@ -16,6 +16,7 @@
     <menu class="menu__main-action">
         <div class="menu__players">
             <button id="btn__dialog-register">registrar atletas</button>
+            <button id="btn__dialog-delete">exibir atletas</button>
             <button id="btn__dialog-add">adicionar atletas ao time</button>
         </div>
         
@@ -26,12 +27,26 @@
         </div>
     </menu>
     
+    <dialog id="dialog__delete-players">
+        <form method="dialog" id="form__delete-players">
+            <legend>todos os jogadores cadastrados:</legend>
+
+            <section id="section__fields-checkbox" class="section__fields">
+            </section>
+        
+            <div>
+                <button type="reset" id="btn__cancel-delete" class="btn__cancel">cancelar</button>
+                <button type="submit" id="btn__confirm-del" class="btn__confirm">remover jogadore(s)</button>
+            </div>
+        </form>
+    </dialog>
+
     <dialog id="dialog__register-players">
         <form method="dialog" id="form__register-players">
             <legend>digite o nome dos seus jogadores:</legend>
             
             <section id="section__fields" class="section__fields">
-                <fieldset class="field__player">
+                <fieldset class="field__player original">
                     <label for="player__name">Nome: </label>
                     <input type="text" minlength="3" maxlength="10" required />
                 </fieldset>
@@ -116,17 +131,16 @@
         </form>
     </dialog>
 
-    <!-- <article class="article__detail-team">
+    <article class="article__detail-team">
         <p id="p__current-team">time atual: <span>N/A</span></p>
         <p id="p__current-action">ação atual: <span>realizando saque</span></p>
         <p id="p__current-setter-position">posição atual do levantador: <span>1</span></p>
-    </article> -->
+    </article> 
 
-  
-    <!-- <main class="main__vb-court">  
-    </main> -->
+    <main class="main__vb-court">  
+    </main>
 
-    <!-- <section class="section__group-action-court">
+    <section class="section__group-action-court">
         <div id="action__action-rotation">
             <button 
                 class="action__rotation" 
@@ -145,12 +159,8 @@
                 time posição <b>original</b>
             </button>
 
-            <button class="action__game" id="btn__action-serving-before">
-                time <b>realizando</b> saque (regra antiga)
-            </button>
-
-            <button class="action__game" id="btn__action-serving-after">
-                time <b>realizando</b> saque (regra nova)
+            <button class="action__game" id="btn__action-serving">
+                time <b>realizando</b> saque
             </button>
 
             <button class="action__game" id="btn__action-receiving">
@@ -169,7 +179,7 @@
                 time <b>defendendo</b> lado direito
             </button>
         </div>
-    </section> -->
+    </section>
 
     <!-- <section class="section__group-action-court">
         <div>
@@ -197,7 +207,7 @@
                 rotação <b>seguinte</b>
             </button>
         </div
-    </section> -->
+    </section>
 
 
 
@@ -212,7 +222,12 @@
 <script type="module" src="assets/script/game.js"></script> -->
 
 <script type="module" src="assets/script/menu/menu.js"></script>
+<script type="module" src="assets/script/form/form-delete-player.js"></script>
 <script type="module" src="assets/script/form/form-register-player.js"></script>
 <script type="module" src="assets/script/form/form-set-players.js"></script>
+<script type="module" src="assets/script/court/insert-players.js"></script>
+<script type="module" src="assets/script/actions.js"></script>
+
+<script src="assets/script/court/court.js"></script>
 </body>
 </html>

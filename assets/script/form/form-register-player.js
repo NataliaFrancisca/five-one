@@ -13,11 +13,22 @@ formRegisterPlayers.addEventListener("submit", () => {
 
     alert("atletas adicionado com sucesso.")
     updateDataFromPlayers();
+
+    formRegisterPlayers.reset();
+    removeFields();
 });
+
+function removeFields(){
+    const allFields = document.querySelectorAll("#form__register-players .field__player.copy");
+
+    allFields.forEach((field) => {
+        field.remove();
+    })
+}
 
 function createField(){
     const fieldset = document.createElement('fieldset');
-    fieldset.classList.add("field__player");
+    fieldset.classList.add("field__player", "copy");
 
     const label = document.createElement("label");
     label.innerHTML = "Nome: "

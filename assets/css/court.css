@@ -62,7 +62,7 @@ div.court__square.inserted.player__serving{
 }
 
 div.court__square.inserted.player__libero{
-    background-color: brown;
+    background-color: rgb(247, 0, 202);
 }
 
 div.court__square:hover span{

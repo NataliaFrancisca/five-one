@@ -13,9 +13,9 @@ function createSquare(r,c){
     const p = document.createElement("p");
     const span = document.createElement("span");
 
-    div.appendChild(p);
     div.appendChild(span);
-
+    div.appendChild(p);
+   
     return div;
 }
 

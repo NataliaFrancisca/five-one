@@ -3,7 +3,7 @@ import { Teams } from "../teams/Teams.js";
 
 import { updateField } from "../form/form-delete-player.js";
 import { updateSchemaAfterFormSubmit } from "../court/insert-players.js";
-import { firstRotation } from "../court/insert-players.js";
+import { firstRotation, getCurrentSetterPosition } from "../actions.js";
 
 const dialogAddPlayerIntoTeam = document.getElementById("dialog__add-player-into-team");
 const buttonDialogAddPlayerIntoTeam = document.getElementById("btn__dialog-add");
@@ -29,15 +29,6 @@ const teams = new Teams();
 const players = new Players();
 
 let currentTeam;
-
-const rotationSetter = {
-    1: 1,
-    2: 6,
-    3: 5,
-    4: 4,
-    5: 3,
-    6: 2
-};
 
 buttonDialogDelete.addEventListener("click", () => {
     if (players.get().length == 0){
@@ -92,23 +83,25 @@ buttonShowTeamC.addEventListener("click", () => {
     updateSchemaAfterFormSubmit();
 })
 
-const actionsDescription = {
-    "original": "rotação original",
-    "serve": "realizando saque",
-    "receive": "recebendo saque",
-    "attack": "realizando saque",
-    "defense-left": "defendendo (lado esquerdo)",
-    "defense-right": "defendendo (lado direito)"
-}
-
 function updateDetails(){
+
+    const actionsDescription = {
+        "original": "rotação original",
+        "serve": "realizando saque",
+        "receive": "recebendo saque",
+        "attack": "realizando saque",
+        "defense-left": "defendendo (lado esquerdo)",
+        "defense-right": "defendendo (lado direito)"
+    }
+
     currentTeam = teams.getCurrentTeam();
+    const currentSetterPosition = getCurrentSetterPosition();
 
     pCurrentTeam.innerHTML = currentTeam.name;
     pCurrentAction.innerHTML = actionsDescription[currentTeam.lastAction];
-    pCurretnSetterPosition.innerHTML = rotationSetter[currentTeam.lastPosition];
+    pCurretnSetterPosition.innerHTML = currentSetterPosition;
 
-    firstRotation();
+    firstRotation(currentTeam);
 }
 
 updateDetails();

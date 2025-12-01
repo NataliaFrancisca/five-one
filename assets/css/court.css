@@ -61,10 +61,6 @@ div.court__square.inserted.player__serving{
     font-weight: 600;
 }
 
-div.court__square.inserted.player__libero{
-    background-color: rgb(247, 0, 202);
-}
-
 div.court__square:hover span{
     display: flex;
 }

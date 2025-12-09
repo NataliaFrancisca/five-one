@@ -17,7 +17,15 @@ export class Team{
 
         this.name = name;
         this.lastAction = "original";
-        this.lastPosition = 1;
+        this.lastPosition = {
+            1: "SETTER",
+            6: "MIDDLE_BLOCK_I",
+            5: "OUTSIDE_HITTER_II",
+            4: "OPPOSITE_HITTER",
+            3: "MIDDLE_BLOCK_II",
+            2: "OUTSIDE_HITTER_I",
+            7: "LIBERO"
+        }
     }
 
     setName(name){

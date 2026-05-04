@@ -2,7 +2,7 @@ main.main__vb-court{
     display: grid;
     grid-template-columns: repeat(7, 14%);
     grid-template-rows: repeat(6, 80px);
-    width: 45%;
+    width: 100%;
     gap: 2px;
 }
 
@@ -21,7 +21,6 @@ main.main__vb-court div.set__temporarie-bg-orange{
 main.main__vb-court div.set__temporarie-bg-blue{
     background-color:  rgb(61, 106, 255);
 }
-
 
 div.court__square.inserted{
     align-items: center;
@@ -56,6 +55,10 @@ div.court__square.inserted span{
     text-transform: capitalize;
 }
 
+div.court__square.front-row p{
+    box-shadow: 0px 0px 10px 4px rgb(255, 165, 0);
+}
+
 div.court__square.inserted.player__serving{
     background-color: rgb(34, 255, 34);   
     font-weight: 600;
@@ -71,7 +74,7 @@ section.section__group-action-court{
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 40%;
+    width: 100%;
 }
 
 section.section__group-action-court div{
@@ -129,35 +132,10 @@ section.section__group-action-court button.action__rotation:hover{
   transform: translateX(-100px);
 }
 
-@media screen and (max-width: 1030px){
-    main.main__vb-court{
-        width: 50%;
-    }
-
-    section.section__group-action-court{
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 830px){
-    main.main__vb-court{
-        width: 70%;
-    }
-
-    section.section__group-action-court{
-        width: 70%;
-    }
-}
-
 @media screen and (max-width: 630px){
     main.main__vb-court{
-        width: 90%;
         grid-template-rows: repeat(6, 80px);
         grid-template-columns: repeat(7, 14%);
-    }
-
-    section.section__group-action-court{
-        width: 90%;
     }
 
     div.court__square.inserted{

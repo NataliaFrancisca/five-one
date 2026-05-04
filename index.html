@@ -12,161 +12,164 @@
 </head>
 <body>
 
-    <menu class="menu__main-action">
-        <div class="menu__players">
-            <button id="btn__dialog-register">registrar atletas</button>
-            <button id="btn__dialog-delete">exibir atletas</button>
-            <button id="btn__dialog-add">adicionar atletas ao time</button>
-        </div>
+    <main class="main__app">
+
+        <menu class="menu__main-action">
+            <div class="menu__players">
+                <button id="btn__dialog-register">registrar atletas</button>
+                <button id="btn__dialog-delete">exibir atletas</button>
+                <button id="btn__dialog-add">adicionar atletas ao time</button>
+            </div>
+            
+            <div class="menu__teams">
+                <button id="btn__team-a">time a</button>
+                <button id="btn__team-b">time b</button>
+                <button id="btn__team-c">time c</button>
+            </div>
+        </menu>
         
-        <div class="menu__teams">
-            <button id="btn__team-a">time a</button>
-            <button id="btn__team-b">time b</button>
-            <button id="btn__team-c">time c</button>
-        </div>
-    </menu>
-    
-    <dialog id="dialog__delete-players">
-        <form method="dialog" id="form__delete-players">
-            <legend>todos os jogadores cadastrados:</legend>
+        <dialog id="dialog__delete-players">
+            <form method="dialog" id="form__delete-players">
+                <legend>todos os jogadores cadastrados:</legend>
 
-            <section id="section__fields-checkbox" class="section__fields">
-            </section>
-        
-            <div>
-                <button type="reset" id="btn__cancel-delete" class="btn__cancel">cancelar</button>
-                <button type="submit" id="btn__confirm-del" class="btn__confirm">remover jogadore(s)</button>
-            </div>
-        </form>
-    </dialog>
-
-    <dialog id="dialog__register-players">
-        <form method="dialog" id="form__register-players">
-            <legend>digite o nome dos seus jogadores:</legend>
+                <section id="section__fields-checkbox" class="section__fields">
+                </section>
             
-            <section id="section__fields" class="section__fields">
-                <fieldset class="field__player original">
-                    <label for="player__name">Nome: </label>
-                    <input type="text" minlength="3" maxlength="10" required />
-                </fieldset>
-            </section>
-            
-            <span id="span__add-fields">adicionar mais um campo</span>
+                <div>
+                    <button type="reset" id="btn__cancel-delete" class="btn__cancel">cancelar</button>
+                    <button type="submit" id="btn__confirm-del" class="btn__confirm">remover jogadore(s)</button>
+                </div>
+            </form>
+        </dialog>
 
-            <div>
-                <button type="reset" id="btn__cancel-register" class="btn__cancel">cancelar</button>
-                <button type="submit" id="btn__confirm-register" class="btn__confirm">registrar</button>
+        <dialog id="dialog__register-players">
+            <form method="dialog" id="form__register-players">
+                <legend>digite o nome dos seus jogadores:</legend>
+                
+                <section id="section__fields" class="section__fields">
+                    <fieldset class="field__player original">
+                        <label for="player__name">Nome: </label>
+                        <input type="text" minlength="3" maxlength="10" required />
+                    </fieldset>
+                </section>
+                
+                <span id="span__add-fields">adicionar mais um campo</span>
+
+                <div>
+                    <button type="reset" id="btn__cancel-register" class="btn__cancel">cancelar</button>
+                    <button type="submit" id="btn__confirm-register" class="btn__confirm">registrar</button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog id="dialog__add-player-into-team">
+            <form method="dialog" id="form__add-players-into-team">
+                <section class="section__group-radio">
+                    <legend>qual time você deseja adicionar os atletas ou atualizar os nomes?</legend>
+
+                    <fieldset>
+                        <label>
+                            time A
+                            <input type="radio" name="team__choice" value="A" id="team__choice-a" checked />
+                        </label>
+
+                        <label>
+                            time B
+                            <input type="radio" name="team__choice" value="B" id="team__choice-b" />
+                        </label>
+
+                        <label>
+                            time C
+                            <input type="radio" name="team__choice" value="C" id="team__choice-c" />
+                        </label>
+                    </fieldset>
+                </section>
+
+                <legend>selecione o jogador para cada posição:</legend>
+                
+                <section id="section__group-field" class="section__fields">
+
+                    <fieldset class="field__player">
+                        <label>levantador:</label>
+                        <select class="player-select" name="setter" required></select>
+                    </fieldset>
+
+                    <fieldset class="field__player">
+                        <label>líbero:</label>
+                        <select class="player-select" name="libero" required></select>
+                    </fieldset>
+
+                    <fieldset class="field__player">
+                        <label>oposto:</label>
+                        <select class="player-select" name="opposite" required></select>
+                    </fieldset>
+
+                    <fieldset class="field__player">
+                        <label>central I:</label>
+                        <select class="player-select" name="mdbi" required></select>
+                    </fieldset>
+
+                    <fieldset class="field__player">
+                        <label>central II:</label>
+                        <select class="player-select" name="mdbii" required></select>
+                    </fieldset>
+
+                    <fieldset class="field__player">
+                        <label>ponteiro I:</label>
+                        <select class="player-select" name="othi" required></select>
+                    </fieldset>
+
+                    <fieldset class="field__player">
+                        <label>ponteiro II:</label>
+                        <select class="player-select" name="othii" required></select>
+                    </fieldset>
+                </section>
+
+                <div>
+                    <button type="reset" id="btn__cancel-set" class="btn__cancel">cancelar</button>
+                    <button type="submit" id="btn__confirm-set" class="btn__confirm">atualizar</button>
+                </div>
+            </form>
+        </dialog>
+
+        <article class="article__detail-team">
+            <p id="p__current-team">time atual: <span>N/A</span></p>
+            <p id="p__current-action">ação atual: <span>realizando saque</span></p>
+            <p id="p__current-setter-position">posição atual do levantador: <span>1</span></p>
+        </article> 
+
+        <main class="main__vb-court">  
+        </main>
+
+        <section class="section__group-action-court">
+            <div id="action__action-rotation">
+                <button 
+                    class="action__rotation" 
+                    id="btn__action-back-rotation">
+                    rotação <b>anterior</b>
+                </button>
+                <button 
+                    class="action__rotation" 
+                    id="btn__action-next-rotation">
+                    rotação <b>seguinte</b>
+                </button>
             </div>
-        </form>
-    </dialog>
 
-    <dialog id="dialog__add-player-into-team">
-        <form method="dialog" id="form__add-players-into-team">
-            <section class="section__group-radio">
-                <legend>qual time você deseja adicionar os atletas ou atualizar os nomes?</legend>
+            <div id="group__action-game">
+                <button class="action__game" id="btn__action-original">
+                    time posição <b>original</b>
+                </button>
 
-                <fieldset>
-                    <label>
-                        time A
-                        <input type="radio" name="team__choice" value="A" id="team__choice-a" checked />
-                    </label>
+                <button class="action__game" id="btn__action-serving">
+                    time <b>realizando</b> saque
+                </button>
 
-                    <label>
-                        time B
-                        <input type="radio" name="team__choice" value="B" id="team__choice-b" />
-                    </label>
-
-                     <label>
-                        time C
-                        <input type="radio" name="team__choice" value="C" id="team__choice-c" />
-                    </label>
-                </fieldset>
-            </section>
-
-            <legend>selecione o jogador para cada posição:</legend>
-            
-            <section id="section__group-field" class="section__fields">
-
-                <fieldset class="field__player">
-                    <label>levantador:</label>
-                    <select class="player-select" name="setter" required></select>
-                </fieldset>
-
-                <fieldset class="field__player">
-                    <label>líbero:</label>
-                    <select class="player-select" name="libero" required></select>
-                </fieldset>
-
-                <fieldset class="field__player">
-                    <label>oposto:</label>
-                    <select class="player-select" name="opposite" required></select>
-                </fieldset>
-
-                <fieldset class="field__player">
-                    <label>central I:</label>
-                    <select class="player-select" name="mdbi" required></select>
-                </fieldset>
-
-                <fieldset class="field__player">
-                    <label>central II:</label>
-                    <select class="player-select" name="mdbii" required></select>
-                </fieldset>
-
-                <fieldset class="field__player">
-                    <label>ponteiro I:</label>
-                    <select class="player-select" name="othi" required></select>
-                </fieldset>
-
-                <fieldset class="field__player">
-                    <label>ponteiro II:</label>
-                    <select class="player-select" name="othii" required></select>
-                </fieldset>
-            </section>
-
-            <div>
-                <button type="reset" id="btn__cancel-set" class="btn__cancel">cancelar</button>
-                <button type="submit" id="btn__confirm-set" class="btn__confirm">atualizar</button>
+                <button class="action__game" id="btn__action-receiving">
+                    time <b>recebendo</b> saque
+                </button>
             </div>
-        </form>
-    </dialog>
-
-    <article class="article__detail-team">
-        <p id="p__current-team">time atual: <span>N/A</span></p>
-        <p id="p__current-action">ação atual: <span>realizando saque</span></p>
-        <p id="p__current-setter-position">posição atual do levantador: <span>1</span></p>
-    </article> 
-
-    <main class="main__vb-court">  
+        </section>
     </main>
-
-    <section class="section__group-action-court">
-        <div id="action__action-rotation">
-            <button 
-                class="action__rotation" 
-                id="btn__action-back-rotation">
-                rotação <b>anterior</b>
-            </button>
-             <button 
-                class="action__rotation" 
-                id="btn__action-next-rotation">
-                rotação <b>seguinte</b>
-            </button>
-        </div>
-
-        <div id="group__action-game">
-            <button class="action__game" id="btn__action-original">
-                time posição <b>original</b>
-            </button>
-
-            <button class="action__game" id="btn__action-serving">
-                time <b>realizando</b> saque
-            </button>
-
-            <button class="action__game" id="btn__action-receiving">
-                time <b>recebendo</b> saque
-            </button>
-        </div>
-    </section>
 
 <script type="module" src="assets/script/menu/menu.js"></script>
 <script type="module" src="assets/script/form/form-delete-player.js"></script>

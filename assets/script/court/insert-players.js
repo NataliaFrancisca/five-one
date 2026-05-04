@@ -7,7 +7,7 @@ export function clean(){
         const player = allPlayersInCourter.item(i);
 
         if (player){
-            player.classList.remove("inserted");
+            player.classList.remove("inserted", "back-row", "front-row");
             player.firstChild.innerHTML = "";
             player.lastChild.innerHTML = "";
         }
@@ -28,7 +28,7 @@ export function insertIntoBackRow(baseRotation, players, rotation, isServing, is
     const playersBackRow = [playerOnFive, playerOnSix, playerOnOne];
 
     playerOnOne.classList.add("player__serving");
-    playersBackRow.forEach(player => player.classList.add("inserted"));
+    playersBackRow.forEach(player => player.classList.add("inserted", "back-row"));
 
     const playerForPositionOne = {position: baseRotation[1], name: players[baseRotation[1]]};
     const playerForPositionSix = {position: baseRotation[6], name: players[baseRotation[6]]};
@@ -44,7 +44,6 @@ export function insertIntoBackRow(baseRotation, players, rotation, isServing, is
         }
     });
 
-
     if(isServing){
         playerOnOne.firstChild.innerHTML = playerForPositionOne.name;
     }
@@ -55,12 +54,13 @@ export function insertIntoBackRow(baseRotation, players, rotation, isServing, is
 }
 
 export function insertIntoFrontRow(baseRotation, players, rotation){
+  
     const playerOnFour = document.getElementById(rotation[4][0] + "-" + rotation[4][1]);
     const playerOnThree = document.getElementById(rotation[3][0] + "-" + rotation[3][1]);
     const playerOnTwo = document.getElementById(rotation[2][0] + "-" + rotation[2][1]);
 
     const playersFrontRow= [playerOnFour, playerOnThree, playerOnTwo];
-    playersFrontRow.forEach(player => player.classList.add("inserted"));
+    playersFrontRow.forEach(player => player.classList.add("inserted", "front-row"));
 
     playerOnFour.firstChild.innerHTML = players[baseRotation[4]];
     playerOnThree.firstChild.innerHTML = players[baseRotation[3]];

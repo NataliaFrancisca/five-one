@@ -1,20 +1,25 @@
 function runAnimationWhile(athleteOne, athleteTwo){
-    const rect1 = athleteOne.getBoundingClientRect();
-    const rect2 = athleteTwo.getBoundingClientRect();
- 
-    const dx = rect2.left - rect1.left;
-    const dy = rect2.top - rect1.top;
 
-    athleteOne.style.transition = "transform 0.6s ease";
-    athleteTwo.style.transition = "transform 0.6s ease";
+    try{
+        const rect1 = athleteOne.getBoundingClientRect();
+        const rect2 = athleteTwo.getBoundingClientRect();
 
-    athleteOne.style.transform = `translate(${dx}px, ${dy}px)`;
-    athleteTwo.style.transform = `translate(${-dx}px, ${-dy}px)`;
+        const dx = rect2.left - rect1.left;
+        const dy = rect2.top - rect1.top;
 
-    setTimeout(() => {
-        athleteOne.style.transform = "";
-        athleteTwo.style.transform = "";
-    }, 1000);
+        athleteOne.style.transition = "transform 0.6s ease";
+        athleteTwo.style.transition = "transform 0.6s ease";
+
+        athleteOne.style.transform = `translate(${dx}px, ${dy}px)`;
+        athleteTwo.style.transform = `translate(${-dx}px, ${-dy}px)`;
+
+        setTimeout(() => {
+            athleteOne.style.transform = "";
+            athleteTwo.style.transform = "";
+        }, 1000);
+    }catch{
+        console.log("effect is not applied")
+    } 
 }
 
 export function runAnimationFrontRow(currentRotation){
@@ -28,13 +33,13 @@ export function runAnimationFrontRow(currentRotation){
             runAnimationWhile(frontRow[0], frontRow[1])
             break;
         case 3:
-            runAnimationWhile(frontRow[0], frontRow[1])
+            runAnimationWhile(frontRow[1], frontRow[2])
             break;
         case 4:
             runAnimationWhile(frontRow[0], frontRow[2])
             break;
         case 5:
-            runAnimationWhile(frontRow[1], frontRow[2])
+            runAnimationWhile(frontRow[0], frontRow[1])
             break;
         case 6:
             runAnimationWhile(frontRow[0], frontRow[1])

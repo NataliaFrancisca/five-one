@@ -36,8 +36,10 @@ export function firstRotation(team){
     insertIntoFrontRow(playersByPosition, players, rotation);
     insertIntoBackRow(playersByPosition, players, rotation, isServing, isOriginal);
 
-    runAnimationFrontRow(currentRotation);
-    runAnimationBackRow(currentRotation);
+    if(isServing){
+        runAnimationFrontRow(currentRotation);
+        runAnimationBackRow(currentRotation);
+    }
 }
 
 export function saveLastAction(){
@@ -66,7 +68,7 @@ function action(action, description){
     insertIntoFrontRow(playersByPosition, team.players, rotation);
     insertIntoBackRow(playersByPosition, team.players, rotation, isServing, isOriginal);
 
-    if(!isOriginal){
+    if(isServing){
         runAnimationFrontRow(currentRotation);
         runAnimationBackRow(currentRotation);
     }
@@ -75,7 +77,28 @@ function action(action, description){
 }
 
 function next(){
-    currentRotation == 6 ? currentRotation = 1 : currentRotation = currentRotation - 1;
+
+    switch(currentRotation){
+        case 1:
+            currentRotation = 6;
+            break;
+        case 6: 
+            currentRotation = 5;
+            break;
+        case 5:
+            currentRotation = 4;
+            break;
+        case 4:
+            currentRotation = 3;
+            break;
+        case 3:
+            currentRotation = 2;
+            break;
+        case 2:
+            currentRotation = 1;
+            break;
+    }
+
     updateSchemaNextRotation();
     updateSetter(true);
 
@@ -83,7 +106,28 @@ function next(){
 }
 
 function back(){
-    currentRotation == 1 ? currentRotation = 6 : currentRotation = currentRotation + 1;
+
+    switch(currentRotation){
+        case 1:
+            currentRotation = 2;
+            break;
+        case 6: 
+            currentRotation = 1;
+            break;
+        case 5:
+            currentRotation = 6;
+            break;
+        case 4:
+            currentRotation = 5;
+            break;
+        case 3:
+            currentRotation = 4;
+            break;
+        case 2:
+            currentRotation = 3;
+            break;
+    }
+
     updateSchemaBackRotation();
     updateSetter(false);
 
@@ -93,52 +137,25 @@ function back(){
 function updateSetter(isNextRotation){
     let setterPosition = currentSetterPosition;
 
-    if (currentSetterPosition == 1){
-        if(isNextRotation){
-            setterPosition = 6;
-        }else{
-            setterPosition = 2;
-        }
-    }
-
-    if(currentSetterPosition == 6){
-        if(isNextRotation){
-            setterPosition = 5;
-        }else{
-            setterPosition = 1;
-        }
-    }
-
-    if (currentSetterPosition == 5){
-        if (isNextRotation){
-            setterPosition = 4;
-        }else{
-            setterPosition = 6;
-        }
-    }
-
-    if (currentSetterPosition == 4){
-        if (isNextRotation){
-            setterPosition = 3;
-        }else{
-            setterPosition = 5;
-        }
-    }
-
-     if (currentSetterPosition == 3){
-        if (isNextRotation){
-            setterPosition = 2;
-        }else{
-            setterPosition = 4;
-        }
-    }
-
-    if (currentSetterPosition == 2){
-        if (isNextRotation){
-            setterPosition = 1;
-        }else{
-            setterPosition = 3;
-        }
+    switch(currentSetterPosition){
+        case 1:
+            setterPosition = isNextRotation ? 6 : 2;
+            break;
+        case 6:
+            setterPosition = isNextRotation ? 5 : 1;
+            break;
+        case 5:
+            setterPosition = isNextRotation ? 4 : 6;
+            break;
+        case 4:
+            setterPosition = isNextRotation ? 3 : 5;
+            break;
+        case 3:
+            setterPosition = isNextRotation ? 2 : 4;
+            break;
+        case 2:
+            setterPosition = isNextRotation ? 1 : 3;
+            break;
     }
 
     currentSetterPosition = setterPosition;

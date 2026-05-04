@@ -5,12 +5,11 @@ sistema que ajuda a visualizar o posicionamento dos jogadores no sistema 5x1 do 
 > este projeto foi construído com o objetivo de auxiliar professores, técnicos e alunos a visualizar o posicionamento dos atletas em quadra no sistema 5x1 do vôlei.
 
 ### funcionalidades:
-- adicionar o nome do atletas para cada posição (levantador, líbero, centrais, ponteiros e oposto).
-- salvar duas opções de times: (feminino e masculino).
-- fazer a troca entre esses times.
-- editar o nome dos atletas.
-- visualizar o posicionamento para cada rotação (a referência é o levantador, que no site começa sempre na posição 1).
-- visualizar o posicionamento do time ao receber o saque do time adversário e ao realizar o saque.
+- adicionar e remover atletas.
+- três opções de time (A, B e C).
+- adicionar os atletas para cada posição (levantador, líbero, centrais, ponteiros e oposto).
+- fazer a exibição entre os três times.
+- visualizar o posicionamento para cada rotação (original, sacando e recebendo saque).
 - alterar entre as rotações (rotação seguinte ou rotação anterior)
 
 ### stack:
